@@ -1,0 +1,2 @@
+cd "C:\Users\Maksat\OneDrive\Desktop\Telegram_bot"
+python g.py
