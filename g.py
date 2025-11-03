@@ -146,8 +146,6 @@ async def main():
     asyncio.create_task(scheduler())
     await dp.start_polling(bot)
 
-print("TOKEN:", TOKEN)
-print("ADMIN_ID:", ADMIN_ID)
 
 if __name__ == "__main__":
     asyncio.run(main())
