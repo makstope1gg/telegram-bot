@@ -42,13 +42,16 @@ def load_chapters():
 
 
 def get_books_keyboard():
-    kb = InlineKeyboardMarkup()
+    buttons = []
     with open("bible_chapters.txt", "r", encoding="utf-8") as f:
         for line in f:
             if "=" in line:
                 book = line.strip().split("=")[0]
-                kb.add(InlineKeyboardButton(text=book, callback_data=f"choose_{book}"))
-    return kb
+                # каждая кнопка — отдельный ряд
+                buttons.append([InlineKeyboardButton(text=book, callback_data=f"choose_{book}")])
+
+    # тут уже передаем список списков
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
 async def get_state():
